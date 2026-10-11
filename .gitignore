@@ -1,0 +1,14 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and Temp
+*.log
+*.tmp
+*.bak
+.tempmediaStorage/
+
+# Build and Dependencies
+node_modules/
+.vercel/

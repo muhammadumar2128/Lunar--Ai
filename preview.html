@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunar AI — Theme & Design System Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0E0E11;
+      color: #F4F4F6;
+      line-height: 1.6;
+      padding: 60px 24px 100px 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #E5A957;
+      background: rgba(229, 169, 87, 0.1);
+      border: 1px solid rgba(229, 169, 87, 0.25);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .sub {
+      color: #9A9AA6;
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .option-card {
+      background-color: #17171C;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .option-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .image-wrap {
+      width: 100%;
+      background-color: #09090B;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .image-wrap:hover img {
+      transform: scale(1.01);
+    }
+
+    .content-wrap {
+      padding: 32px 36px;
+    }
+    .opt-tag {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #E5A957;
+      margin-bottom: 8px;
+    }
+    .opt-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .opt-desc {
+      font-size: 1rem;
+      color: #A6A6B4;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 18px;
+    }
+    .features-list li {
+      font-size: 0.88rem;
+      color: #D4D4DE;
+    }
+    .features-list li strong {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <span class="badge">Theme &amp; Design Direction Preview</span>
+      <h1>Select Your Lunar AI Landing Page Theme</h1>
+      <p class="sub">Review the three distinct visual options below to decide which design system best fits your goals (strictly zero blue).</p>
+    </header>
+
+    <div class="options-grid">
+
+      <!-- Option A -->
+      <article class="option-card">
+        <div class="image-wrap">
+          <img src="assets/theme_a_obsidian.jpg" alt="Option A: Ultra-Luxury Obsidian &amp; Champagne Gold">
+        </div>
+        <div class="content-wrap">
+          <div class="opt-tag">Option A · Ultra-Luxury Boutique</div>
+          <h2 class="opt-title">Obsidian &amp; Champagne Gold (“The Private Client Tier”)</h2>
+          <p class="opt-desc">
+            Deep matte obsidian carbon black with dark graphite cards, warm glowing champagne gold buttons, and floating glassmorphic diagnostics. Evokes high-end private client banking, Rolex, and bespoke luxury fashion ateliers.
+          </p>
+          <ul class="features-list">
+            <li><strong>Palette:</strong> Matte Obsidian, Graphite &amp; Antique Champagne Gold</li>
+            <li><strong>Conversion Angle:</strong> High status, prestige &amp; $50k+ agency perceived value</li>
+            <li><strong>Hero Hook:</strong> Floating performance diagnostic card with sub-second tags</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Option B -->
+      <article class="option-card">
+        <div class="image-wrap">
+          <img src="assets/theme_b_tech_growth.jpg" alt="Option B: High-Velocity Modern Tech Agency">
+        </div>
+        <div class="content-wrap">
+          <div class="opt-tag" style="color: #F59E0B;">Option B · Tech Growth Engine</div>
+          <h2 class="opt-title">Crisp White &amp; Sunset Amber (“The Silicon Valley Growth Engine”)</h2>
+          <p class="opt-desc">
+            Stark clean white with high-contrast jet black typography, technical subtle gridlines, and high-energy sunset amber/tangerine accents (Linear &amp; Framer design language). Puts an interactive revenue growth calculator right in the hero.
+          </p>
+          <ul class="features-list">
+            <li><strong>Palette:</strong> Stark White, Deep Obsidian &amp; Sunset Amber / Tangerine</li>
+            <li><strong>Conversion Angle:</strong> Raw math, speed metrics &amp; undeniable revenue ROI</li>
+            <li><strong>Hero Hook:</strong> Interactive revenue growth slider calculator &amp; speed gauges</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Option C -->
+      <article class="option-card">
+        <div class="image-wrap">
+          <img src="assets/theme_c_swiss_editorial.jpg" alt="Option C: Editorial Swiss Elegance">
+        </div>
+        <div class="content-wrap">
+          <div class="opt-tag" style="color: #C88D66;">Option C · Architectural DTC Studio</div>
+          <h2 class="opt-title">Cashmere Linen &amp; Metallic Copper (“Editorial Swiss Elegance”)</h2>
+          <p class="opt-desc">
+            Warm cashmere linen paper canvas with deep roasted espresso text, architectural Swiss typography, and warm metallic bronze/copper accents. Evokes Aesop, Kinfolk, and high-status DTC fashion lookbooks.
+          </p>
+          <ul class="features-list">
+            <li><strong>Palette:</strong> Cashmere Linen Canvas, Roasted Espresso &amp; Warm Copper</li>
+            <li><strong>Conversion Angle:</strong> Impeccable art direction &amp; luxury brand alignment</li>
+            <li><strong>Hero Hook:</strong> Architectural split view with integrated assessment brief</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+</body>
+</html>

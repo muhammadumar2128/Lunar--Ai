@@ -18,7 +18,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=31">
+  <link rel="stylesheet" href="style.css?v=36">
 </head>
 
 <body>
@@ -78,6 +78,24 @@
         <!-- 2.5D PERSPECTIVE FANNED SHOWCASE (CozyFits in Front) -->
         <div class="hero-fanned-showcase" id="hero-deck">
           <div class="fanned-cards-stage">
+
+            <!-- Floating Navigation Arrow: Previous -->
+            <button type="button" class="deck-nav-arrow deck-nav-prev" id="hero-deck-prev"
+              aria-label="Previous showcase slide" title="Previous slide">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Floating Navigation Arrow: Next -->
+            <button type="button" class="deck-nav-arrow deck-nav-next" id="hero-deck-next"
+              aria-label="Next showcase slide" title="Next slide">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
 
             <!-- Left Outer (Position 1): KASHUME Botanical Lookbook -->
             <article class="fanned-card card-pos-1" data-index="3" tabindex="0" role="button"
@@ -517,8 +535,11 @@
           <!-- Card 1: CEO Abdullah -->
           <div class="team-card">
             <div class="team-photo-frame">
-              <img src="assets/images/team/ceo_abdullah_studio.webp" alt="Muhammad Abdullah — Founder & CEO"
-                class="team-photo" width="600" height="700" loading="eager" decoding="async">
+              <picture>
+                <source srcset="assets/images/team/ceo_abdullah.webp" type="image/webp">
+                <img src="assets/images/CEO ABDULLAH.jpeg" alt="Muhammad Abdullah — Founder & CEO"
+                  class="team-photo" width="1080" height="1350" loading="eager" decoding="async">
+              </picture>
               <div class="team-specialty-tag">
                 <span class="specialty-dot"></span>
                 <span>Liquid Architecture</span>
@@ -540,8 +561,11 @@
           <!-- Card 2: CTO Bilal -->
           <div class="team-card">
             <div class="team-photo-frame">
-              <img src="assets/images/team/cto_bilal_studio.webp" alt="Muhammad Bilal — Co-Founder & CTO"
-                class="team-photo" width="600" height="700" loading="eager" decoding="async">
+              <picture>
+                <source srcset="assets/images/team/cto_bilal.webp" type="image/webp">
+                <img src="assets/images/CTO BILAL.jpeg" alt="Muhammad Bilal — Co-Founder & CTO"
+                  class="team-photo" width="1080" height="1350" loading="eager" decoding="async">
+              </picture>
               <div class="team-specialty-tag">
                 <span class="specialty-dot"></span>
                 <span>Autonomous AI Systems</span>
@@ -563,8 +587,11 @@
           <!-- Card 3: COO Umar -->
           <div class="team-card">
             <div class="team-photo-frame">
-              <img src="assets/images/team/coo_umar_studio.webp" alt="Muhammad Umar — Co-Founder & COO"
-                class="team-photo" width="600" height="700" loading="eager" decoding="async">
+              <picture>
+                <source srcset="assets/images/team/coo_umar.webp" type="image/webp">
+                <img src="assets/images/COO UMAR.jpeg" alt="Muhammad Umar — Co-Founder & COO"
+                  class="team-photo" width="1080" height="1350" loading="eager" decoding="async">
+              </picture>
               <div class="team-specialty-tag">
                 <span class="specialty-dot"></span>
                 <span>Unit Economics & Recovery</span>
@@ -719,8 +746,9 @@
           <!-- Center Focal Statement -->
           <div class="orbit-center-focal">
             <blockquote class="orbit-center-quote">
-              “We could’nt be happier with the outcome.”
+              “We couldn’t be happier with the outcome.”
             </blockquote>
+
             <div class="orbit-center-rating" aria-label="5 stars">★★★★★</div>
             <div class="orbit-center-trust">
               <span class="orbit-trust-stars">5.0</span>

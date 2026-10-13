@@ -592,16 +592,104 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    // Navigation helper functions
+    function nextSlide() {
+      const nextIdx = (activeCenterIndex + 1) % cards.length;
+      updateDeckPositions(nextIdx);
+    }
+
+    function prevSlide() {
+      const prevIdx = (activeCenterIndex - 1 + cards.length) % cards.length;
+      updateDeckPositions(prevIdx);
+    }
+
+    // Arrow navigation buttons
+    const prevBtn = heroDeck.querySelector('.deck-nav-prev');
+    const nextBtn = heroDeck.querySelector('.deck-nav-next');
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        prevSlide();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        nextSlide();
+      });
+    }
+
+    // Keyboard navigation (ArrowLeft & ArrowRight)
+    window.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+      const rect = heroDeck.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) return;
+
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    });
+
+    // Touch swipe gesture support for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    heroDeck.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    heroDeck.addEventListener('touchend', (e) => {
+      if (e.changedTouches.length === 1) {
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        const deltaY = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+          if (deltaX < 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+    }, { passive: true });
   }
 
   // =========================================================================
-  // THREE BENEFITS INTERACTIVE CARDS
+  // THREE BENEFITS INTERACTIVE CARDS (Single Accordion Expansion)
   // =========================================================================
   const benefitCards = document.querySelectorAll('.benefit-ref-card');
   benefitCards.forEach(card => {
     card.addEventListener('click', () => {
-      card.classList.toggle('expanded');
+      const isAlreadyExpanded = card.classList.contains('expanded');
+
+      // Close all cards in the section
+      benefitCards.forEach(otherCard => {
+        otherCard.classList.remove('expanded');
+      });
+
+      // Expand clicked card only if it was not already open
+      if (!isAlreadyExpanded) {
+        card.classList.add('expanded');
+      }
     });
+
+    // Prevent clicking/selecting text inside the expanded drawer from closing the card
+    const drawer = card.querySelector('.benefit-expand-drawer');
+    if (drawer) {
+      drawer.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
   });
 });
 

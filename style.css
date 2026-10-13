@@ -58,6 +58,9 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Technical Grid Background with Smooth Vignette / Corner Blend */
@@ -70,6 +73,9 @@ body {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  min-width: 320px;
   position: relative;
   min-height: 100vh;
 }
@@ -242,7 +248,7 @@ body::after {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 16px 0 48px 0;
+  padding: 16px 0 12px 0;
 }
 
 /* Announcement Pill */
@@ -345,7 +351,7 @@ body::after {
 .hero-fanned-showcase {
   width: 100%;
   max-width: 1160px;
-  margin: 0 auto 36px auto;
+  margin: 0 auto 8px auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -566,6 +572,88 @@ body::after {
   image-rendering: auto;
 }
 
+/* ==========================================================================
+   HERO FANNED SHOWCASE — FLOATING NAVIGATION ARROWS
+   ========================================================================== */
+.deck-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  color: var(--ink-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 70;
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.14), 
+              0 4px 10px -2px rgba(15, 23, 42, 0.06), 
+              0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              color 0.2s ease;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+}
+
+.deck-nav-prev {
+  left: -20px;
+}
+
+.deck-nav-next {
+  right: -20px;
+}
+
+.deck-nav-arrow svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--ink-primary);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
+  pointer-events: none;
+}
+
+.deck-nav-arrow:hover {
+  background: #FFFFFF;
+  color: var(--accent-mint);
+  border-color: rgba(13, 148, 136, 0.45);
+  box-shadow: 0 16px 36px -4px rgba(13, 148, 136, 0.28), 
+              0 6px 16px -2px rgba(15, 23, 42, 0.08),
+              0 0 0 3px rgba(13, 148, 136, 0.12);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.deck-nav-arrow:hover svg {
+  stroke: var(--accent-mint);
+}
+
+.deck-nav-prev:hover svg {
+  transform: translateX(-2.5px);
+}
+
+.deck-nav-next:hover svg {
+  transform: translateX(2.5px);
+}
+
+.deck-nav-arrow:active {
+  transform: translateY(-50%) scale(0.94);
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.14);
+}
+
+.deck-nav-arrow:focus-visible {
+  border-color: var(--accent-mint);
+  box-shadow: 0 0 0 3px var(--accent-glow), 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
 /* Fanned Deck Footer & Interactive Indicators */
 .fanned-deck-footer {
   display: flex;
@@ -614,6 +702,20 @@ body::after {
   .fanned-cards-stage {
     height: 460px;
   }
+  .deck-nav-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .deck-nav-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+  .deck-nav-prev {
+    left: -6px;
+  }
+  .deck-nav-next {
+    right: -6px;
+  }
   .fanned-card {
     width: 380px;
   }
@@ -656,7 +758,7 @@ body::after {
 
 .section-header {
   text-align: center;
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto 40px auto;
 }
 
@@ -671,7 +773,7 @@ body::after {
 }
 
 .section-title {
-  font-size: clamp(1.85rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--ink-primary);
@@ -679,19 +781,27 @@ body::after {
   margin-bottom: 12px;
 }
 
+@media (min-width: 769px) {
+  .section-title {
+    white-space: nowrap;
+  }
+}
+
 .section-subtitle {
   font-size: 0.95rem;
   color: var(--ink-muted);
   line-height: 1.55;
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 /* ==========================================================================
    2. THREE BENEFITS SECTION (Light Studio Theme — Cohesive Color System)
    ========================================================================== */
 .benefits-section {
-  padding: 68px 0 28px 0;
+  padding: 38px 0 28px 0;
   border-top: 1.5px solid var(--border-light);
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -768,6 +878,7 @@ body::after {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
+  align-items: start;
   position: relative;
   z-index: 1;
 }
@@ -781,6 +892,7 @@ body::after {
   flex-direction: column;
   position: relative;
   box-shadow: var(--shadow-card);
+  align-self: start;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.25s ease,
               box-shadow 0.25s ease;
@@ -1510,23 +1622,29 @@ body::after {
 
 .team-photo-frame {
   width: 100%;
-  aspect-ratio: 6 / 7;
-  border-radius: 18px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 35%, #FFFFFF 0%, #E9EFF5 100%);
-  border: 1px solid rgba(226, 232, 240, 0.85);
+  background-color: #15B8A7;
+  border: 1.5px solid rgba(13, 148, 136, 0.25);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 24px -4px rgba(13, 148, 136, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.team-photo-frame picture {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .team-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
   display: block;
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
@@ -1552,8 +1670,9 @@ body::after {
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--ink-secondary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   pointer-events: none;
+  z-index: 2;
 }
 
 .specialty-dot {
@@ -1686,7 +1805,8 @@ body::after {
     font-size: 0.86rem;
     line-height: 1.55;
   }
-  .team-bottom-cta .btn-pill {
+  .team-bottom-cta .btn-pill,
+  .section-cta-wrap .btn-pill {
     width: 100%;
     justify-content: center;
   }
@@ -1834,6 +1954,13 @@ body::after {
   line-height: 1.45;
   border-top: 1px solid var(--border-light);
   padding-top: 8px;
+}
+
+.section-cta-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -2909,41 +3036,107 @@ body::after {
 }
 
 /* ==========================================================================
-   RESPONSIVENESS (Mobile & Small Tablets)
+   RESPONSIVENESS (Mobile & Small Tablets <= 768px)
    ========================================================================== */
 @media (max-width: 768px) {
   .canvas-frame {
-    padding: 20px 18px 48px 18px;
+    padding: 16px 14px 44px 14px;
     border-radius: 20px;
+    overflow: hidden;
+    max-width: 100%;
   }
-  .hero-cards-grid,
-  .benefits-row-grid,
-  .insights-grid,
-  .founders-meta-grid,
-  .testimonials-grid,
-  .bento-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .bento-card-featured,
-  .bento-card-wide {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  .aspect-wide {
-    aspect-ratio: 16 / 10;
-  }
-  .bento-content {
-    padding: 18px 20px;
-  }
-  /* Mobile Fanned Showcase adjustments */
-  .hero-fanned-showcase {
+  .navbar {
+    padding: 12px 14px;
     margin-bottom: 24px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-action .btn-pill {
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 10px 0 16px 0;
+  }
+  .hero-announcement {
+    max-width: 100%;
+    padding: 5px 12px;
+    margin-bottom: 20px;
+    font-size: 0.76rem;
+  }
+  .announcement-text {
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.76rem;
+  }
+  .hero-title {
+    font-size: clamp(1.85rem, 5.8vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .title-line-1 {
+    display: block;
+  }
+  .title-line-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+    gap: 6px;
+  }
+  .badge-highlight {
+    margin-left: 0;
+    padding: 2px 12px;
+    font-size: 0.9em;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 22px;
+    padding: 0 8px;
+  }
+  .hero-cta-group {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .hero-cta-group .btn-pill {
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+    padding: 14px 22px;
+    font-size: 0.94rem;
+  }
+
+  /* Hero Fanned Showcase on Tablet / Mobile */
+  .hero-fanned-showcase {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
     overflow: visible;
   }
   .fanned-cards-stage {
     height: 320px;
+    max-width: 100%;
     overflow: visible;
+  }
+  .deck-nav-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  .deck-nav-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  .deck-nav-prev {
+    left: 4px;
+  }
+  .deck-nav-next {
+    right: 4px;
   }
   .fanned-card {
     width: 270px;
@@ -2951,11 +3144,11 @@ body::after {
     border-radius: 18px;
   }
   .card-pos-1 {
-    transform: translate(-100px, 14px) rotate(-6deg) scale(0.85);
+    transform: translate(-95px, 14px) rotate(-6deg) scale(0.85);
     z-index: 2;
   }
   .card-pos-2 {
-    transform: translate(-50px, 7px) rotate(-3deg) scale(0.92);
+    transform: translate(-48px, 7px) rotate(-3deg) scale(0.92);
     z-index: 4;
   }
   .card-pos-3 {
@@ -2963,103 +3156,433 @@ body::after {
     z-index: 10;
   }
   .card-pos-4 {
-    transform: translate(50px, 7px) rotate(3deg) scale(0.92);
+    transform: translate(48px, 7px) rotate(3deg) scale(0.92);
     z-index: 4;
   }
   .card-pos-5 {
-    transform: translate(100px, 14px) rotate(6deg) scale(0.85);
+    transform: translate(95px, 14px) rotate(6deg) scale(0.85);
     z-index: 2;
   }
 
-  .card-pos-1:hover, .card-pos-1.is-hovered { transform: translate(-100px, -14px) rotate(0deg) scale(1.03) !important; z-index: 50 !important; }
-  .card-pos-2:hover, .card-pos-2.is-hovered { transform: translate(-50px, -16px) rotate(0deg) scale(1.03) !important; z-index: 50 !important; }
-  .card-pos-3:hover, .card-pos-3.is-hovered { transform: translate(0, -18px) rotate(0deg) scale(1.03) !important; z-index: 50 !important; }
-  .card-pos-4:hover, .card-pos-4.is-hovered { transform: translate(50px, -16px) rotate(0deg) scale(1.03) !important; z-index: 50 !important; }
-  .card-pos-5:hover, .card-pos-5.is-hovered { transform: translate(100px, -14px) rotate(0deg) scale(1.03) !important; z-index: 50 !important; }
   .card-title-micro {
     font-size: 0.82rem;
   }
-  .nav-links {
-    display: none;
+
+  /* Grid Layouts to 1-Column */
+  .hero-cards-grid,
+  .benefits-row-grid,
+  .benefits-cards-grid,
+  .insights-grid,
+  .founders-meta-grid,
+  .testimonials-grid,
+  .bento-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-  .result-header {
+
+  /* Benefits Section Mobile */
+  .benefits-section {
+    padding: 30px 0 18px 0;
+    margin-top: 18px;
+  }
+  .benefits-header-split {
     flex-direction: column;
-    text-align: center;
+    gap: 14px;
+    margin-bottom: 28px;
   }
+  .benefits-header-left,
+  .benefits-header-right {
+    max-width: 100%;
+    padding-top: 0;
+  }
+  .benefits-main-title {
+    font-size: clamp(1.6rem, 5.2vw, 2.1rem);
+    line-height: 1.22;
+  }
+  .benefits-header-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .benefit-ref-card {
+    padding: 18px 16px;
+    border-radius: 18px;
+    width: 100%;
+  }
+  .benefit-mockup-viewport {
+    height: 240px;
+    margin-bottom: 18px;
+  }
+  .benefit-card-title {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  /* Team Section Mobile */
+  .team-section {
+    margin-bottom: 44px;
+  }
+  .team-header {
+    margin-bottom: 28px;
+  }
+  .team-main-title {
+    font-size: clamp(1.6rem, 5.2vw, 2.1rem);
+    line-height: 1.22;
+  }
+  .team-main-subtitle {
+    font-size: 0.92rem;
+    padding: 0 6px;
+  }
+  .team-cards-grid {
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  .team-card {
+    padding: 14px 14px 20px 14px;
+    border-radius: 20px;
+  }
+  .team-photo-frame {
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+  }
+  .team-member-name {
+    font-size: 1.18rem;
+  }
+  .team-member-role {
+    font-size: 0.84rem;
+  }
+  .team-member-bio {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+  .team-bottom-cta {
+    margin-top: 28px;
+    width: 100%;
+  }
+  .team-bottom-cta .btn-pill {
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+  }
+
+  /* Insights Section Mobile */
+  .insights-grid {
+    max-width: 480px;
+    margin: 0 auto 28px auto;
+  }
+  .insight-card {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+  .insight-topic {
+    font-size: 1.15rem;
+  }
+  .insight-body {
+    font-size: 0.88rem;
+  }
+
+  /* Assessment Section Mobile */
+  .assessment-section {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+  .quiz-card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+  .q-title {
+    font-size: 1.22rem;
+    line-height: 1.3;
+  }
+  .q-subtitle {
+    font-size: 0.84rem;
+    margin-bottom: 18px;
+  }
+  .opt-btn,
+  .q-option-btn {
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    border-radius: 12px;
+  }
+  .open-text-input {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    border-radius: 14px;
+  }
+  .quiz-actions-row {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 16px;
+  }
+  .lead-title {
+    font-size: 1.32rem;
+  }
+
+  /* Footer Mobile */
   .footer-inner {
     flex-direction: column;
     text-align: center;
+    gap: 16px;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
   }
 }
 
 /* ==========================================================================
-   EXTRA MOBILE RESPONSIVENESS (Phones under 480px / 375px)
+   STANDARD PHONES (iPhone, Galaxy, Pixel <= 480px)
    ========================================================================== */
 @media (max-width: 480px) {
   body {
-    padding: 8px 6px 40px 6px;
+    padding: 6px 4px 36px 4px;
   }
   .canvas-frame {
-    padding: 16px 12px 36px 12px;
+    padding: 14px 10px 32px 10px;
     border-radius: 16px;
   }
   .navbar {
-    padding: 10px 12px;
+    padding: 10px 10px;
     border-radius: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .brand-text {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
   }
   .nav-action .btn-pill {
-    padding: 6px 11px;
+    padding: 6px 12px;
     font-size: 0.74rem;
   }
-  .hero-title {
-    font-size: 1.75rem;
-    line-height: 1.18;
+
+  /* Hero */
+  .hero-announcement {
+    max-width: 100%;
+    padding: 4px 10px;
+    gap: 6px;
   }
-  .title-line-2 {
-    white-space: normal;
-    flex-wrap: wrap;
+  .announcement-text {
+    max-width: 190px;
+    font-size: 0.72rem;
+  }
+  .hero-title {
+    font-size: 1.65rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
   }
   .hero-subtitle {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    line-height: 1.48;
+    margin-bottom: 18px;
   }
+  .hero-cta-group .btn-pill {
+    max-width: 100%;
+    padding: 13px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Hero Slider Cards */
   .fanned-cards-stage {
-    height: 290px;
+    height: 275px;
+  }
+  .deck-nav-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .deck-nav-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+  .deck-nav-prev {
+    left: 2px;
+  }
+  .deck-nav-next {
+    right: 2px;
   }
   .fanned-card {
-    width: 240px;
+    width: min(230px, 78vw);
     padding: 7px;
+    border-radius: 16px;
   }
-  .card-pos-1 { transform: translate(-72px, 12px) rotate(-5deg) scale(0.85); }
-  .card-pos-2 { transform: translate(-36px, 6px) rotate(-2.5deg) scale(0.92); }
+  .card-pos-1 { transform: translate(-64px, 10px) rotate(-5deg) scale(0.85); }
+  .card-pos-2 { transform: translate(-32px, 5px) rotate(-2.5deg) scale(0.92); }
   .card-pos-3 { transform: translate(0, 0) rotate(0deg) scale(1); }
-  .card-pos-4 { transform: translate(36px, 6px) rotate(2.5deg) scale(0.92); }
-  .card-pos-5 { transform: translate(72px, 12px) rotate(5deg) scale(0.85); }
+  .card-pos-4 { transform: translate(32px, 5px) rotate(2.5deg) scale(0.92); }
+  .card-pos-5 { transform: translate(64px, 10px) rotate(5deg) scale(0.85); }
 
+  /* Benefits Mobile */
   .benefits-section {
-    padding: 32px 0 16px 0;
+    padding: 22px 0 14px 0;
+    margin-top: 14px;
   }
   .benefits-main-title {
-    font-size: 1.6rem;
-    line-height: 1.2;
+    font-size: 1.5rem;
+    line-height: 1.22;
   }
   .benefits-header-desc {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
   }
   .benefit-ref-card {
-    padding: 16px 14px;
+    padding: 15px 12px;
+    border-radius: 16px;
   }
   .benefit-mockup-viewport {
-    height: 230px;
+    height: 220px;
+    border-radius: 14px;
+    margin-bottom: 14px;
   }
-  .audit-step-card {
+  .benefit-card-title {
+    font-size: 0.98rem;
+    line-height: 1.32;
+  }
+  .benefit-toggle-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .benefit-spec-list {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .benefit-spec-list li {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* Team */
+  .team-cards-grid {
+    max-width: 100%;
+    gap: 16px;
+  }
+  .team-card {
+    padding: 12px 12px 18px 12px;
+    border-radius: 18px;
+  }
+  .team-photo-frame {
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+  }
+  .team-member-name {
+    font-size: 1.12rem;
+  }
+  .team-specialty-tag {
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.62rem;
+    padding: 3px 8px;
+  }
+
+  /* Insights */
+  .insight-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  .insight-topic {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+  }
+  .insight-body {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  /* Assessment */
+  .assessment-section {
+    padding: 22px 14px;
+    border-radius: 18px;
+  }
+  .quiz-card {
     padding: 18px 14px;
+    border-radius: 14px;
   }
-  .audit-title {
+  .q-title {
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+  .opt-btn,
+  .q-option-btn {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   COMPACT & FOLDABLE DEVICES (Galaxy Fold, iPhone SE <= 360px)
+   ========================================================================== */
+@media (max-width: 360px) {
+  body {
+    padding: 4px 2px 28px 2px;
+  }
+  .canvas-frame {
+    padding: 10px 6px 24px 6px;
+    border-radius: 12px;
+  }
+  .navbar {
+    padding: 8px 8px;
+    margin-bottom: 16px;
+  }
+  .brand-text {
+    font-size: 1.02rem;
+  }
+  .nav-action .btn-pill {
+    padding: 5px 9px;
+    font-size: 0.7rem;
+  }
+  .announcement-text {
+    max-width: 140px;
+    font-size: 0.68rem;
+  }
+  .hero-title {
     font-size: 1.45rem;
+  }
+  .badge-highlight {
+    padding: 1px 8px;
+    font-size: 0.82em;
+  }
+  .hero-subtitle {
+    font-size: 0.82rem;
+  }
+  .hero-cta-group .btn-pill {
+    padding: 12px 16px;
+    font-size: 0.84rem;
+  }
+
+  /* Ultra-compact slider */
+  .fanned-cards-stage {
+    height: 245px;
+  }
+  .deck-nav-arrow {
+    width: 32px;
+    height: 32px;
+  }
+  .deck-nav-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+  .deck-nav-prev { left: 0px; }
+  .deck-nav-next { right: 0px; }
+  .fanned-card {
+    width: 195px;
+    padding: 5px;
+    border-radius: 14px;
+  }
+  .card-pos-1 { transform: translate(-48px, 8px) rotate(-4deg) scale(0.85); }
+  .card-pos-2 { transform: translate(-24px, 4px) rotate(-2deg) scale(0.92); }
+  .card-pos-3 { transform: translate(0, 0) rotate(0deg) scale(1); }
+  .card-pos-4 { transform: translate(24px, 4px) rotate(2deg) scale(0.92); }
+  .card-pos-5 { transform: translate(48px, 8px) rotate(4deg) scale(0.85); }
+
+  .benefit-mockup-viewport {
+    height: 195px;
+  }
+  .q-title {
+    font-size: 1.05rem;
+  }
+  .opt-btn,
+  .q-option-btn {
+    padding: 10px 12px;
+    font-size: 0.8rem;
   }
 }
 

@@ -8,7 +8,7 @@
 :root {
   /* Canvas & Technical Grid */
   --bg-grid-color: #FAFAF9;
-  --grid-line-color: rgba(140, 155, 175, 0.42);
+  --grid-line-color: rgba(140, 155, 175, 0.14);
   --bg-frame: transparent;
   --bg-card: #FFFFFF;
   --bg-subtle: #F1F3F6;

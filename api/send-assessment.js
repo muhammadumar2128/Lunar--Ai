@@ -45,7 +45,8 @@ export default async function handler(req, res) {
       console.warn('RESEND_API_KEY environment variable is not configured.');
       return res.status(500).json({ error: 'Email service is not configured with RESEND_API_KEY.' });
     }
-    const fromDomain = process.env.RESEND_FROM_EMAIL || 'admin@lunar.com';
+    const fromDomain = process.env.RESEND_FROM_EMAIL || 'admin@lunarai.agency';
+    const replyToEmail = process.env.REPLY_TO_EMAIL || 'admin@lunar.com';
     const founderMeetingUrl = process.env.FOUNDER_MEETING_URL || 'https://calendly.com/muhammad11abdullah21/30min';
     const pdfUrl = process.env.PDF_AUDIT_URL || 'https://lunarai.agency/assets/lunar-store-audit.pdf';
     const notificationEmail = process.env.NOTIFICATION_EMAIL || 'admin@lunar.com';
@@ -189,33 +190,43 @@ export default async function handler(req, res) {
     }
 
     // Function to dispatch via Resend
-    async function sendResendMail(fromAddress, toAddress, emailSubject, htmlContent) {
+    async function sendResendMail(fromAddress, toAddress, emailSubject, htmlContent, replyToAddress) {
+      const emailPayload = {
+        from: fromAddress,
+        to: [toAddress],
+        subject: emailSubject,
+        html: htmlContent
+      };
+      if (replyToAddress) {
+        emailPayload.reply_to = replyToAddress;
+      }
       const response = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          from: fromAddress,
-          to: [toAddress],
-          subject: emailSubject,
-          html: htmlContent
-        })
+        body: JSON.stringify(emailPayload)
       });
       return response;
     }
 
-    // Try sending with configured domain, fallback to onboarding@resend.dev if domain not yet verified
-    let sendResult = await sendResendMail(`Lunar AI <${fromDomain}>`, email, subject, emailHtml);
+    // Try sending with configured domain
+    let sendResult = await sendResendMail(`Lunar AI <${fromDomain}>`, email, subject, emailHtml, replyToEmail);
     let sendData = await sendResult.json();
 
     if (!sendResult.ok) {
       console.warn('Initial send failed, checking fallback:', sendData);
-      // If error is about unverified domain, fallback to onboarding@resend.dev for test
+      // If error is about unverified domain, fallback to verified lunarai.agency domain
       if (sendData.message && sendData.message.toLowerCase().includes('domain')) {
-        sendResult = await sendResendMail('Lunar AI <onboarding@resend.dev>', email, subject, emailHtml);
-        sendData = await sendResult.json();
+        if (fromDomain !== 'admin@lunarai.agency') {
+          sendResult = await sendResendMail('Lunar AI <admin@lunarai.agency>', email, subject, emailHtml, replyToEmail);
+          sendData = await sendResult.json();
+        }
+        if (!sendResult.ok) {
+          sendResult = await sendResendMail('Lunar AI <onboarding@resend.dev>', email, subject, emailHtml, replyToEmail);
+          sendData = await sendResult.json();
+        }
       }
     }
 
@@ -233,7 +244,8 @@ export default async function handler(req, res) {
         <p><strong>Timeline:</strong> ${escapeHtml(timeline)}</p>
       `;
 
-      await sendResendMail(`Lunar Alert <${fromDomain}>`, notificationEmail, `[New Lead] ${name} - ${store} (${numericScore}/10)`, internalAlertHtml);
+      const alertSender = sendResult.ok ? `Lunar Alert <${fromDomain}>` : 'Lunar Alert <admin@lunarai.agency>';
+      await sendResendMail(alertSender, notificationEmail, `[New Lead] ${name} - ${store} (${numericScore}/10)`, internalAlertHtml);
     } catch (teamAlertErr) {
       console.error('Team alert error (non-fatal):', teamAlertErr);
     }

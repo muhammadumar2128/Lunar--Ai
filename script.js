@@ -502,25 +502,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Call to Action based on cutoff
     // High Score (>= 7.5): Qualifies for Founder Strategy Call (Calendly)
-    // Low Score (< 7.5): Receives the Store Audit & Fix Guide PDF
+    // Low Score (< 7.5): Receives the Store Audit & Fix Guide PDF directly via email (no download button)
     if (isGoodStore) {
       ctaPanel.innerHTML = `
         <a href="https://calendly.com/muhammad11abdullah21/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-book-call">
           <span>Book a Strategy Call with the Founders (${pkg.name})</span>
           <span class="btn-arrow">→</span>
         </a>
-        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 10px; text-align: center; font-size: 13px;" id="btn-pdf-status">
-          Founder Strategy Call (Calendly) link dispatched via email to ${contactData.email}
+        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 10px; text-align: center; font-size: 13px;" id="btn-email-status">
+          ✓ Founder Strategy Call (Calendly) link dispatched via email to ${contactData.email}
         </div>
       `;
     } else {
       ctaPanel.innerHTML = `
-        <a href="https://lunarai.agency/assets/lunar-store-audit.pdf" download class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-download-audit-pdf">
-          <span>Download 15-Point Store Audit PDF</span>
-          <span class="btn-arrow">↓</span>
-        </a>
-        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 10px; text-align: center; font-size: 13px;" id="btn-pdf-status">
-          Full Store Audit & Fix Guide (PDF) dispatched via email to ${contactData.email}
+        <div style="background: rgba(20, 184, 166, 0.1); border: 1.5px solid #14b8a6; border-radius: 16px; padding: 22px 20px; text-align: center;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #111827; margin-bottom: 6px;">
+            ✓ Store Audit &amp; Fix Guide Sent Directly to Your Email
+          </div>
+          <p style="font-size: 0.9rem; color: #374151; margin: 0 0 12px 0; line-height: 1.5;">
+            Your 15-point store diagnostic scorecard and actionable fix guide (PDF) has been sent directly to <strong>${contactData.email}</strong>.
+          </p>
+          <div style="font-size: 0.8rem; font-weight: 600; color: #0D9488;" id="btn-email-status">
+            Please check your inbox (and spam/promotions folder) to open your PDF.
+          </div>
         </div>
       `;
     }
@@ -550,9 +554,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(res => res.json())
     .then(result => {
-      const statusEl = document.getElementById('btn-pdf-status');
+      const statusEl = document.getElementById('btn-email-status');
       if (statusEl && result.success) {
-        statusEl.textContent = `✓ Report successfully delivered to ${contactData.email}`;
+        if (isGoodStore) {
+          statusEl.textContent = `✓ Founder Strategy Call invitation delivered to ${contactData.email}`;
+        } else {
+          statusEl.textContent = `✓ Store Audit PDF delivered to ${contactData.email}`;
+        }
       }
     })
     .catch(err => {

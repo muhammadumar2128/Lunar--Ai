@@ -69,7 +69,7 @@ body {
   background-color: var(--bg-grid-color);
   color: var(--ink-primary);
   line-height: 1.5;
-  padding: 32px 18px 80px 18px;
+  padding: 32px 18px 20px 18px;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
@@ -120,7 +120,7 @@ body::after {
   width: 100%;
   max-width: 1220px;
   background-color: transparent;
-  padding: 16px 36px 64px 36px;
+  padding: 16px 36px 20px 36px;
   overflow: visible;
   position: relative;
   z-index: 1;
@@ -2337,16 +2337,46 @@ body::after {
    6. INTERACTIVE 15-QUESTION DIAGNOSTIC ASSESSMENT
    ========================================================================== */
 .assessment-section {
-  background: #FFFFFF;
-  border-radius: 28px;
-  padding: 48px 36px;
-  border: 1.5px solid var(--border-card);
-  box-shadow: var(--shadow-card);
+  position: relative;
+  z-index: 2;
+  background-color: var(--accent-mint-light);
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-radius: 0;
+  padding: 72px 24px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-left: none;
+  border-right: none;
+  box-shadow: 0 20px 50px rgba(20, 184, 166, 0.22);
+  box-sizing: border-box;
 }
 
-.audit-widget-container {
+.assessment-section .section-tag {
+  display: inline-block;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 5px 16px;
+  border-radius: var(--radius-pill);
+}
+
+.assessment-section .section-title {
+  color: #FFFFFF;
+}
+
+.assessment-section .section-subtitle {
+  color: #E6FFFA;
+}
+
+.assessment-section .section-header,
+.assessment-section .audit-widget-container {
   max-width: 760px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Progress Bar */
@@ -2359,36 +2389,40 @@ body::after {
   justify-content: space-between;
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 10px;
 }
 
 .quiz-part-indicator {
-  color: var(--accent-mint);
+  color: #CCFBF1;
+}
+
+.quiz-step-indicator {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .audit-progress-track {
   width: 100%;
   height: 8px;
-  background-color: #E5E7EB;
+  background-color: rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-pill);
   overflow: hidden;
 }
 
 .audit-progress-fill {
   height: 100%;
-  background-color: var(--accent-mint-light);
+  background-color: #FFFFFF;
   border-radius: var(--radius-pill);
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Question Cards */
 .quiz-card {
-  background-color: var(--bg-card);
+  background-color: #FFFFFF;
   border: 1.5px solid var(--border-card);
   border-radius: var(--radius-card);
   padding: 34px 30px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .hidden {
@@ -3040,9 +3074,9 @@ body::after {
    ========================================================================== */
 @media (max-width: 768px) {
   .canvas-frame {
-    padding: 16px 14px 44px 14px;
+    padding: 16px 14px 20px 14px;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: visible;
     max-width: 100%;
   }
   .navbar {
@@ -3283,8 +3317,8 @@ body::after {
 
   /* Assessment Section Mobile */
   .assessment-section {
-    padding: 28px 18px;
-    border-radius: 22px;
+    padding: 36px 16px;
+    border-radius: 0;
   }
   .quiz-card {
     padding: 24px 18px;
@@ -3336,10 +3370,10 @@ body::after {
    ========================================================================== */
 @media (max-width: 480px) {
   body {
-    padding: 6px 4px 36px 4px;
+    padding: 6px 4px 16px 4px;
   }
   .canvas-frame {
-    padding: 14px 10px 32px 10px;
+    padding: 14px 10px 16px 10px;
     border-radius: 16px;
   }
   .navbar {
@@ -3489,8 +3523,8 @@ body::after {
 
   /* Assessment */
   .assessment-section {
-    padding: 22px 14px;
-    border-radius: 18px;
+    padding: 28px 12px;
+    border-radius: 0;
   }
   .quiz-card {
     padding: 18px 14px;
@@ -3512,10 +3546,10 @@ body::after {
    ========================================================================== */
 @media (max-width: 360px) {
   body {
-    padding: 4px 2px 28px 2px;
+    padding: 4px 2px 14px 2px;
   }
   .canvas-frame {
-    padding: 10px 6px 24px 6px;
+    padding: 10px 6px 14px 6px;
     border-radius: 12px;
   }
   .navbar {

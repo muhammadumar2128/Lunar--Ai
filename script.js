@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "foundation",
       topic: "Speed and design",
       options: [
-        { label: "A. I've tested it and it's under 3 seconds", points: 0 },
+        { label: "A. I've tested it and it's under 3 seconds", points: 2 },
         { label: "B. I think it's fine, but I've never tested it", points: 1 },
-        { label: "C. I know it's slow, or customers have told me", points: 2 }
+        { label: "C. I know it's slow, or customers have told me", points: 0 }
       ],
       insightTitle: "Speed and design",
       insightText: "A mobile site that loads just 0.1 seconds faster lifted retail conversion by 8.4%, and shoppers spent 9.2% more. Speed is a sales lever, not a tech detail. (Google and Deloitte)"
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "foundation",
       topic: "Cart Architecture",
       options: [
-        { label: "A. A smooth slide-out cart with upsells and clear next steps", points: 0 },
+        { label: "A. A smooth slide-out cart with upsells and clear next steps", points: 2 },
         { label: "B. They go to a standard cart page", points: 1 },
-        { label: "C. Not sure, or I know it loses people", points: 2 }
+        { label: "C. Not sure, or I know it loses people", points: 0 }
       ],
       insightTitle: "Cart Dropoff Friction",
       insightText: "Redirecting buyers to a clunky default cart page interrupts momentum. An intelligent slide-out cart with relevant upsells preserves focus and increases Average Order Value."
@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "foundation",
       topic: "Recovery",
       options: [
-        { label: "A. Fully branded and consistent with the rest of the store", points: 0 },
+        { label: "A. Fully branded and consistent with the rest of the store", points: 2 },
         { label: "B. Partly branded, mostly default", points: 1 },
-        { label: "C. It's the standard Shopify look", points: 2 }
+        { label: "C. It's the standard Shopify look", points: 0 }
       ],
       insightTitle: "Recovery",
       insightText: "Roughly 70% of online carts are abandoned. Better checkout design alone could lift the average large store's conversion rate by about 35%. Most lost sales aren't lost for good. (Baymard Institute)"
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "foundation",
       topic: "Product Page Salesmanship",
       options: [
-        { label: "A. Strong images, clear details, social proof, and styling suggestions", points: 0 },
+        { label: "A. Strong images, clear details, social proof, and styling suggestions", points: 2 },
         { label: "B. Good images and a description, not much else", points: 1 },
-        { label: "C. It's basic, and shoppers often have to ask questions", points: 2 }
+        { label: "C. It's basic, and shoppers often have to ask questions", points: 0 }
       ],
       insightTitle: "PDP Conversion Power",
       insightText: "A luxury product page must proactively eliminate buyer doubts. Missing styling suggestions, fit guidance, and dynamic social proof turn high-intent visitors away."
@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "personal_shopper",
       topic: "AI shopping",
       options: [
-        { label: "A. An assistant that knows our whole catalog, available any time", points: 0 },
+        { label: "A. An assistant that knows our whole catalog, available any time", points: 2 },
         { label: "B. Email or a contact form, answered within a day", points: 1 },
-        { label: "C. They mostly don't ask. They leave", points: 2 }
+        { label: "C. They mostly don't ask. They leave", points: 0 }
       ],
       insightTitle: "AI shopping",
       insightText: "71% of consumers expect personalized interactions, and faster-growing companies earn 40% more of their revenue from personalization than slower-growing ones. (McKinsey & Company)"
@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "personal_shopper",
       topic: "Curated Bundling",
       options: [
-        { label: "A. Curated lookbooks and personalized bundles", points: 0 },
+        { label: "A. Curated lookbooks and personalized bundles", points: 2 },
         { label: "B. Occasional 'you may also like' suggestions", points: 1 },
-        { label: "C. We don't. Shoppers find things themselves", points: 2 }
+        { label: "C. We don't. Shoppers find things themselves", points: 0 }
       ],
       insightTitle: "Personalized Merchandising",
       insightText: "A shopper who feels known buys more. Curated lookbooks and personalized bundles turn single-item purchases into high-ticket multi-item transactions."
@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "concierge",
       topic: "Abandoned Cart Recovery",
       options: [
-        { label: "A. Automated, personalized recovery", points: 0 },
+        { label: "A. Automated, personalized recovery", points: 2 },
         { label: "B. A generic reminder email", points: 1 },
-        { label: "C. Nothing", points: 2 }
+        { label: "C. Nothing", points: 0 }
       ],
       insightTitle: "Automated Cart Recovery",
       insightText: "Generic email blasts are ignored. Targeted, contextual recovery that highlights specific abandoned variants and answers common checkout hesitations recaptures up to 35% of lost revenue."
@@ -128,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "concierge",
       topic: "VIP Treatment",
       options: [
-        { label: "A. They get a dedicated experience, early access, or a private portal", points: 0 },
+        { label: "A. They get a dedicated experience, early access, or a private portal", points: 2 },
         { label: "B. A discount code now and then", points: 1 },
-        { label: "C. They're treated like every other customer", points: 2 }
+        { label: "C. They're treated like every other customer", points: 0 }
       ],
       insightTitle: "VIP Retention & LTV",
       insightText: "Repeat customers represent the highest-margin segment in ecommerce. Treating them like first-time visitors caps your retention revenue and lifetime customer value."
@@ -144,9 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "concierge",
       topic: "Contextual Team Handoff",
       options: [
-        { label: "A. Instant, with the full conversation passed to our team", points: 0 },
+        { label: "A. Instant, with the full conversation passed to our team", points: 2 },
         { label: "B. They have to repeat themselves", points: 1 },
-        { label: "C. There's no clear route to a human", points: 2 }
+        { label: "C. There's no clear route to a human", points: 0 }
       ],
       insightTitle: "Concierge Handoff",
       insightText: "Making VIP shoppers re-explain their needs causes friction. Instant, contextual AI-to-team handoff converts high-ticket inquiries directly into completed orders."
@@ -160,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
       group: "foundation",
       topic: "Brand Perception & Pricing Power",
       options: [
-        { label: "A. Yes, customers regularly say so", points: 0 },
+        { label: "A. Yes, customers regularly say so", points: 2 },
         { label: "B. Somewhat. It feels more 'template' than 'brand'", points: 1 },
-        { label: "C. No. The store undersells the product", points: 2 }
+        { label: "C. No. The store undersells the product", points: 0 }
       ],
       insightTitle: "Aesthetic Authority",
       insightText: "When an online store feels like an off-the-shelf template, customers resist luxury price points. Bespoke editorial design commands brand authority."
@@ -393,17 +393,19 @@ document.addEventListener('DOMContentLoaded', () => {
     leadBody.classList.add('hidden');
     resultsBody.classList.remove('hidden');
 
-    // 1. Q1-10 Raw score (0-20), divide by 2 for /10
+    // 1. Q1-10 Raw score (0-20), divide by 2 for /10 Store Health Score
     let rawScore = 0;
     const scoredGaps = [];
 
     for (let i = 1; i <= 10; i++) {
       const ans = collectedAnswers[i];
       const pts = ans ? (ans.points ?? 0) : 0;
+      const gap = 2 - pts; // 0 = no friction (good), 1 = moderate, 2 = severe bottleneck
       rawScore += pts;
       scoredGaps.push({
         id: i,
         points: pts,
+        gap: gap,
         topic: questionsData[i - 1].topic,
         title: questionsData[i - 1].insightTitle,
         text: questionsData[i - 1].insightText
@@ -415,15 +417,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     scoreHero.textContent = calculatedScore;
 
-    // Cutoff: 5/10 and above goes to booking a call, below 5 goes to PDF
-    const isCallQualified = scoreVal >= 5.0;
+    // Cutoff: 7.5/10 and above = Good store (Health Score 8-10) -> PDF Audit
+    // Below 7.5/10 = Needs improvement -> Packages and Founder Strategy Call
+    const isGoodStore = scoreVal >= 7.5;
 
-    if (isCallQualified) {
-      scoreBadge.textContent = "High Opportunity (Call Qualified)";
-      scoreExplanation.textContent = `A higher score indicates more friction points and higher upside. With a score of ${calculatedScore}/10, your store has significant untapped revenue levers across speed, checkout, and AI merchandising.`;
+    if (isGoodStore) {
+      scoreBadge.textContent = "High-Performance Foundation (Qualified for Strategy Call)";
+      scoreBadge.style.color = "#34d399";
+      scoreBadge.style.borderColor = "rgba(52, 211, 153, 0.4)";
+      scoreExplanation.textContent = `Your store demonstrates solid fundamentals with a health rating of ${calculatedScore}/10. You qualify for an exclusive 1-on-1 strategy session directly with the founders to unlock high-margin micro-optimizations.`;
     } else {
-      scoreBadge.textContent = "Optimized Foundation";
-      scoreExplanation.textContent = `With a score of ${calculatedScore}/10, your store already demonstrates solid practices. Your custom PDF report highlights micro-optimizations for sub-second speed and VIP retention.`;
+      scoreBadge.textContent = "Revenue Growth Opportunity (Needs Optimization)";
+      scoreBadge.style.color = "#fbbf24";
+      scoreBadge.style.borderColor = "rgba(251, 191, 36, 0.4)";
+      scoreExplanation.textContent = `With a health rating of ${calculatedScore}/10, your store is currently leaking qualified shoppers across checkout, mobile UX, and merchandising. Your comprehensive Store Audit & Fix Guide PDF has been generated below.`;
     }
 
     // 2. Package Recommendation (Q14 & Q1-10 gap pattern)
@@ -433,9 +440,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (q14 && q14.targetPackage && q14.targetPackage !== "Recommendation") {
       recommendedPackageKey = q14.targetPackage;
     } else {
-      const foundationGap = (collectedAnswers[1]?.points || 0) + (collectedAnswers[2]?.points || 0) + (collectedAnswers[3]?.points || 0) + (collectedAnswers[4]?.points || 0);
-      const personalShopperGap = ((collectedAnswers[5]?.points || 0) + (collectedAnswers[6]?.points || 0)) * 2;
-      const conciergeGap = ((collectedAnswers[7]?.points || 0) + (collectedAnswers[8]?.points || 0) + (collectedAnswers[9]?.points || 0)) * 1.33;
+      const getGap = (id) => 2 - (collectedAnswers[id]?.points ?? 2);
+      const foundationGap = getGap(1) + getGap(2) + getGap(3) + getGap(4) + getGap(10);
+      const personalShopperGap = (getGap(5) + getGap(6)) * 2;
+      const conciergeGap = (getGap(7) + getGap(8) + getGap(9)) * 1.33;
 
       if (personalShopperGap >= foundationGap && personalShopperGap >= conciergeGap) {
         recommendedPackageKey = "Personal Shopper";
@@ -481,8 +489,8 @@ document.addEventListener('DOMContentLoaded', () => {
     pkgDesc.textContent = pkg.desc;
     pkgFeatures.innerHTML = pkg.specs.map(item => `<li>${item}</li>`).join('');
 
-    // 3. Three Insights pulled from three highest-scoring (biggest gap) questions
-    const sortedGaps = [...scoredGaps].sort((a, b) => b.points - a.points);
+    // 3. Three Insights pulled from three questions with largest gap (bottlenecks)
+    const sortedGaps = [...scoredGaps].sort((a, b) => b.gap - a.gap);
     const topThree = sortedGaps.slice(0, 3);
 
     insightsFeed.innerHTML = topThree.map(item => `
@@ -493,27 +501,63 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
 
     // 4. Call to Action based on cutoff
-    if (isCallQualified) {
+    // High Score (>= 7.5): Qualifies for Founder Strategy Call (Calendly)
+    // Low Score (< 7.5): Receives the Store Audit & Fix Guide PDF
+    if (isGoodStore) {
       ctaPanel.innerHTML = `
-        <a href="mailto:founders@lunarai.studio?subject=Store%20Assessment%20Review%20(${calculatedScore}/10)&body=Hi%20Muhammad%20Abdullah%20and%20Lunar%20Team,%0A%0AMy%20store%20score%20is%20${calculatedScore}/10.%20I'd%20like%20to%20review%20the%20${encodeURIComponent(pkg.name)}%20package%20for%20my%20store%20${encodeURIComponent(contactData.store)}." class="btn-pill btn-pill-accent btn-pill-lg btn-block">
+        <a href="https://calendly.com/lunarai" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-book-call">
           <span>Book a Strategy Call with the Founders (${pkg.name})</span>
           <span class="btn-arrow">→</span>
         </a>
-        <button type="button" class="btn-pill btn-pill-outline btn-block" style="margin-top: 8px;" id="btn-pdf-status">
-          Detailed PDF Dispatched to ${contactData.email}
-        </button>
+        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 10px; text-align: center; font-size: 13px;" id="btn-pdf-status">
+          Founder Strategy Call (Calendly) link dispatched via email to ${contactData.email}
+        </div>
       `;
     } else {
       ctaPanel.innerHTML = `
-        <button type="button" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-download-audit-pdf">
+        <a href="https://lunarai.agency/assets/lunar-store-audit.pdf" download class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-download-audit-pdf">
           <span>Download 15-Point Store Audit PDF</span>
           <span class="btn-arrow">↓</span>
-        </button>
+        </a>
+        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 10px; text-align: center; font-size: 13px;" id="btn-pdf-status">
+          Full Store Audit & Fix Guide (PDF) dispatched via email to ${contactData.email}
+        </div>
       `;
-      document.getElementById('btn-download-audit-pdf')?.addEventListener('click', () => {
-        alert(`Your detailed 15-point store score PDF is being sent to ${contactData.email}.`);
-      });
     }
+
+    // 5. Send Transactional Email via Resend API
+    fetch('/api/send-assessment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: contactData.name,
+        email: contactData.email,
+        store: contactData.store,
+        score: calculatedScore,
+        isGoodStore: isGoodStore,
+        recommendedPackage: pkg.name,
+        packageDesc: pkg.desc,
+        packageSpecs: pkg.specs,
+        topBottlenecks: topThree.map(item => ({
+          title: item.title,
+          topic: item.topic,
+          text: item.text
+        })),
+        revenue: collectedAnswers[11]?.label || 'Not specified',
+        obstacle: collectedAnswers[12]?.label || 'Not specified',
+        timeline: collectedAnswers[13]?.label || 'Immediately'
+      })
+    })
+    .then(res => res.json())
+    .then(result => {
+      const statusEl = document.getElementById('btn-pdf-status');
+      if (statusEl && result.success) {
+        statusEl.textContent = `✓ Report successfully delivered to ${contactData.email}`;
+      }
+    })
+    .catch(err => {
+      console.warn('Email dispatch status:', err);
+    });
 
     document.getElementById('interactive-audit')?.scrollIntoView({ behavior: 'smooth' });
   }

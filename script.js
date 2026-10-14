@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Low Score (< 7.5): Receives the Store Audit & Fix Guide PDF
     if (isGoodStore) {
       ctaPanel.innerHTML = `
-        <a href="https://calendly.com/lunarai" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-book-call">
+        <a href="https://calendly.com/muhammad11abdullah21/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-book-call">
           <span>Book a Strategy Call with the Founders (${pkg.name})</span>
           <span class="btn-arrow">→</span>
         </a>

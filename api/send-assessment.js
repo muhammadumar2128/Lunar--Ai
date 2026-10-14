@@ -45,10 +45,10 @@ export default async function handler(req, res) {
       console.warn('RESEND_API_KEY environment variable is not configured.');
       return res.status(500).json({ error: 'Email service is not configured with RESEND_API_KEY.' });
     }
-    const fromDomain = process.env.RESEND_FROM_EMAIL || 'admin@lunarai.com';
-    const founderMeetingUrl = process.env.FOUNDER_MEETING_URL || 'https://calendly.com/lunarai';
+    const fromDomain = process.env.RESEND_FROM_EMAIL || 'admin@lunar.com';
+    const founderMeetingUrl = process.env.FOUNDER_MEETING_URL || 'https://calendly.com/muhammad11abdullah21/30min';
     const pdfUrl = process.env.PDF_AUDIT_URL || 'https://lunarai.agency/assets/lunar-store-audit.pdf';
-    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'admin@lunarai.com';
+    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'admin@lunar.com';
 
     const numericScore = parseFloat(score);
     const isGood = isGoodStore || numericScore >= 7.5;
@@ -106,7 +106,7 @@ export default async function handler(req, res) {
 
     <div class="footer">
       Lunar AI Studio · High-Conversion Luxury E-Commerce Architecture<br>
-      admin@lunarai.com · lunarai.agency
+      admin@lunar.com · lunarai.agency
     </div>
   </div>
 </body>
@@ -181,7 +181,7 @@ export default async function handler(req, res) {
 
     <div class="footer">
       Lunar AI Studio · High-Conversion Luxury E-Commerce Architecture<br>
-      admin@lunarai.com · lunarai.agency
+      admin@lunar.com · lunarai.agency
     </div>
   </div>
 </body>

@@ -530,42 +530,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 5. Send Transactional Email via Resend API
-    fetch('/api/send-assessment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: contactData.name,
-        email: contactData.email,
-        store: contactData.store,
-        score: calculatedScore,
-        isGoodStore: isGoodStore,
-        recommendedPackage: pkg.name,
-        packageDesc: pkg.desc,
-        packageSpecs: pkg.specs,
-        topBottlenecks: topThree.map(item => ({
-          title: item.title,
-          topic: item.topic,
-          text: item.text
-        })),
-        revenue: collectedAnswers[11]?.label || 'Not specified',
-        obstacle: collectedAnswers[12]?.label || 'Not specified',
-        timeline: collectedAnswers[13]?.label || 'Immediately'
-      })
-    })
-    .then(res => res.json())
-    .then(result => {
-      const statusEl = document.getElementById('btn-email-status');
-      if (statusEl && result.success) {
-        if (isGoodStore) {
-          statusEl.textContent = `✓ Founder Strategy Call invitation delivered to ${contactData.email}`;
-        } else {
-          statusEl.textContent = `✓ Store Audit PDF delivered to ${contactData.email}`;
+    const assessmentPayload = {
+      name: contactData.name,
+      email: contactData.email,
+      store: contactData.store,
+      score: calculatedScore,
+      isGoodStore: isGoodStore,
+      recommendedPackage: pkg.name,
+      packageDesc: pkg.desc,
+      packageSpecs: pkg.specs,
+      topBottlenecks: topThree.map(item => ({
+        title: item.title,
+        topic: item.topic,
+        text: item.text
+      })),
+      revenue: collectedAnswers[11]?.label || 'Not specified',
+      obstacle: collectedAnswers[12]?.label || 'Not specified',
+      timeline: collectedAnswers[13]?.label || 'Immediately'
+    };
+
+    async function dispatchAssessmentEmail() {
+      let isSuccess = false;
+      const endpoints = ['/api/send-assessment'];
+      
+      // If running on local server other than 3000, or file://, add localhost:3000 fallback
+      if (window.location.protocol === 'file:' || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+        endpoints.push('http://localhost:3000/api/send-assessment');
+      }
+
+      for (const endpoint of endpoints) {
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(assessmentPayload)
+          });
+          if (res.ok) {
+            const result = await res.json();
+            if (result.success) {
+              isSuccess = true;
+              const statusEl = document.getElementById('btn-email-status');
+              if (statusEl) {
+                if (isGoodStore) {
+                  statusEl.textContent = `✓ Founder Strategy Call invitation delivered to ${contactData.email}`;
+                } else {
+                  statusEl.textContent = `✓ Store Audit PDF delivered to ${contactData.email}`;
+                }
+              }
+              break;
+            }
+          }
+        } catch (fetchErr) {
+          console.warn(`Failed dispatch to ${endpoint}:`, fetchErr.message);
         }
       }
-    })
-    .catch(err => {
-      console.warn('Email dispatch status:', err);
-    });
+
+      if (!isSuccess) {
+        console.warn('Assessment email delivery pending confirmation.');
+      }
+    }
+
+    dispatchAssessmentEmail();
 
     document.getElementById('interactive-audit')?.scrollIntoView({ behavior: 'smooth' });
   }

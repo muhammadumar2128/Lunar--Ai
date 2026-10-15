@@ -116,42 +116,28 @@ export default async function handler(req, res) {
                 </tr>
               </table>
 
-              <!-- Recommended Architecture Box -->
-              <table role="presentation" width="100%" style="background-color: #FAFAF9; border: 1px solid #E5E7EB; border-radius: 16px; margin: 0 0 28px 0;" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="padding: 24px;">
-                    <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0 0 10px 0;">
-                      Recommended Package: ${escapeHtml(recommendedPackage)}
-                    </h3>
-                    <p style="font-size: 14px; color: #4B5563; line-height: 1.55; margin: 0 0 16px 0;">
-                      ${escapeHtml(packageDesc)}
-                    </p>
-                    <ul style="font-size: 13px; color: #374151; line-height: 1.65; margin: 0 0 22px 0; padding-left: 20px;">
-                      <li>Private 30-min architecture review with Muhammad Abdullah (CEO)</li>
-                      <li>Sub-0.2s mobile caching &amp; checkout friction audit</li>
-                      <li>Custom AI personal shopper and predictive bundling blueprint</li>
-                    </ul>
-                    <div style="text-align: center;">
-                      <a href="${founderMeetingUrl}" style="display: inline-block; background-color: #14B8A6; color: #FFFFFF !important; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px 32px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);">
-                        Schedule Your Strategy Call on Calendly &rarr;
-                      </a>
-                      <div style="font-size: 12px; color: #6B7280; margin-top: 8px;">
-                        Direct 30-min strategy session · Pick your time slot
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+              <!-- Direct Booking Call Section -->
+              <div style="text-align: center; margin: 32px 0 36px 0;">
+                <p style="font-size: 15px; color: #374151; line-height: 1.6; margin: 0 0 20px 0;">
+                  Here is your private booking link to reserve a 30-minute 1-on-1 strategy call with our founders:
+                </p>
+                <a href="${founderMeetingUrl}" style="display: inline-block; background-color: #14B8A6; color: #FFFFFF !important; font-weight: 700; font-size: 15px; text-decoration: none; padding: 15px 36px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);">
+                  Book Your Strategy Call on Calendly &rarr;
+                </a>
+                <div style="font-size: 12px; color: #6B7280; margin-top: 10px;">
+                  Direct 30-min strategy session · Select a time that works for you
+                </div>
+              </div>
 
               <!-- Founder Sign-off -->
               <p style="font-size: 14px; color: #4B5563; line-height: 1.6; margin: 0 0 6px 0;">
-                We look forward to speaking with you and reviewing your store's architecture.
+                We look forward to speaking with you.
               </p>
               <p style="font-size: 14px; color: #111827; font-weight: 600; margin: 0 0 2px 0;">
                 Muhammad Abdullah, Muhammad Bilal &amp; Muhammad Umar
               </p>
               <p style="font-size: 13px; color: #6B7280; margin: 0;">
-                Founders, Lunar AI Studio
+                Founders, Lunar AI
               </p>
             </td>
           </tr>
@@ -250,42 +236,18 @@ export default async function handler(req, res) {
                 </tr>
               </table>
 
-              <!-- Bottlenecks Box -->
-              <table role="presentation" width="100%" style="background-color: #FAFAF9; border: 1px solid #E5E7EB; border-radius: 16px; margin: 0 0 24px 0;" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="padding: 22px 24px;">
-                    <h3 style="font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #111827; margin: 0 0 14px 0;">
-                      Top Conversion Gaps Identified
-                    </h3>
-                    ${bottlenecksHtml}
-                  </td>
-                </tr>
-              </table>
-
-              <!-- Recommended Solution & PDF Download -->
-              <table role="presentation" width="100%" style="background-color: #F0FDFA; border: 1.5px solid #14B8A6; border-radius: 16px; margin: 0 0 28px 0;" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="padding: 24px;">
-                    <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0D9488;">
-                      Recommended Solution
-                    </span>
-                    <h3 style="font-size: 18px; font-weight: 800; color: #111827; margin: 4px 0 10px 0;">
-                      ${escapeHtml(recommendedPackage)}
-                    </h3>
-                    <p style="font-size: 14px; color: #374151; line-height: 1.55; margin: 0 0 18px 0;">
-                      ${escapeHtml(packageDesc)}
-                    </p>
-                    <div style="text-align: center;">
-                      <a href="${pdfUrl}" style="display: inline-block; background-color: #14B8A6; color: #FFFFFF !important; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px 32px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);">
-                        Download Your 15-Point Store Audit PDF &rarr;
-                      </a>
-                      <div style="font-size: 12px; color: #0F766E; margin-top: 8px;">
-                        Complete technical fix guide &amp; benchmark scorecard
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+              <!-- Direct PDF Download Section -->
+              <div style="text-align: center; margin: 32px 0 36px 0;">
+                <p style="font-size: 15px; color: #374151; line-height: 1.6; margin: 0 0 20px 0;">
+                  Your complete 15-Point Store Audit &amp; Conversion Fix Guide has been compiled for <strong>${escapeHtml(store || 'your store')}</strong>:
+                </p>
+                <a href="${pdfUrl}" style="display: inline-block; background-color: #14B8A6; color: #FFFFFF !important; font-weight: 700; font-size: 15px; text-decoration: none; padding: 15px 36px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);">
+                  Download Your Store Audit PDF &rarr;
+                </a>
+                <div style="font-size: 12px; color: #6B7280; margin-top: 10px;">
+                  Complete 15-point diagnostic scorecard &amp; conversion optimization roadmap
+                </div>
+              </div>
 
               <!-- Founder Sign-off -->
               <p style="font-size: 14px; color: #4B5563; line-height: 1.6; margin: 0 0 6px 0;">
@@ -295,7 +257,7 @@ export default async function handler(req, res) {
                 Muhammad Abdullah, Muhammad Bilal &amp; Muhammad Umar
               </p>
               <p style="font-size: 13px; color: #6B7280; margin: 0;">
-                Founders, Lunar AI Studio
+                Founders, Lunar AI
               </p>
             </td>
           </tr>

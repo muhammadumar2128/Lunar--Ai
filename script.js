@@ -421,16 +421,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // Below 7.5/10 = Needs improvement -> Packages and Founder Strategy Call
     const isGoodStore = scoreVal >= 7.5;
 
+    const resultHeading = document.getElementById('result-heading');
     if (isGoodStore) {
-      scoreBadge.textContent = "High-Performance Foundation (Qualified for Strategy Call)";
-      scoreBadge.style.color = "#34d399";
-      scoreBadge.style.borderColor = "rgba(52, 211, 153, 0.4)";
-      scoreExplanation.textContent = `Your store demonstrates solid fundamentals with a health rating of ${calculatedScore}/10. You qualify for an exclusive 1-on-1 strategy session directly with the founders to unlock high-margin micro-optimizations.`;
+      scoreBadge.textContent = "Qualified for Founder Strategy Call";
+      scoreBadge.style.color = "#0D9488";
+      scoreBadge.style.borderColor = "#99F6E4";
+      scoreBadge.style.backgroundColor = "#F0FDFA";
+      if (resultHeading) resultHeading.textContent = "Strategy Call Booking Link Dispatched";
+      scoreExplanation.innerHTML = `Your store demonstrates solid fundamentals with a health rating of <strong>${calculatedScore}/10</strong>. We have dispatched your private strategy call booking link directly to <strong>${contactData.email}</strong>. You can also select a time slot below:`;
+
+      ctaPanel.innerHTML = `
+        <a href="https://calendly.com/muhammad11abdullah21/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-book-call">
+          <span>Book a Strategy Call with the Founders (30 Min)</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 12px; text-align: center; font-size: 13px;" id="btn-email-status">
+          ✓ Booking link sent to ${contactData.email} · Select a time above or open your email
+        </div>
+      `;
     } else {
-      scoreBadge.textContent = "Revenue Growth Opportunity (Needs Optimization)";
-      scoreBadge.style.color = "#fbbf24";
-      scoreBadge.style.borderColor = "rgba(251, 191, 36, 0.4)";
-      scoreExplanation.textContent = `With a health rating of ${calculatedScore}/10, your store is currently leaking qualified shoppers across checkout, mobile UX, and merchandising. Your comprehensive Store Audit & Fix Guide PDF has been generated below.`;
+      scoreBadge.textContent = "Store Diagnostic Complete (Fix Guide Sent)";
+      scoreBadge.style.color = "#B45309";
+      scoreBadge.style.borderColor = "#FDE68A";
+      scoreBadge.style.backgroundColor = "#FFFBEB";
+      if (resultHeading) resultHeading.textContent = "Store Audit & Fix Guide Dispatched";
+      scoreExplanation.innerHTML = `With a health rating of <strong>${calculatedScore}/10</strong>, your 15-Point Store Audit &amp; Conversion Fix Guide (PDF) has been dispatched directly to <strong>${contactData.email}</strong>.`;
+
+      ctaPanel.innerHTML = `
+        <div style="background: rgba(20, 184, 166, 0.08); border: 1.5px solid #14b8a6; border-radius: 16px; padding: 22px 20px; text-align: center;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #111827; margin-bottom: 6px;">
+            ✓ Store Audit &amp; Fix Guide Sent Directly to Your Email
+          </div>
+          <p style="font-size: 0.9rem; color: #374151; margin: 0 0 12px 0; line-height: 1.5;">
+            Your 15-point store diagnostic scorecard and actionable fix guide (PDF) has been sent directly to <strong>${contactData.email}</strong>.
+          </p>
+          <div style="font-size: 0.8rem; font-weight: 600; color: #0D9488;" id="btn-email-status">
+            Please check your inbox (and spam/promotions folder) to open your PDF.
+          </div>
+        </div>
+      `;
     }
 
     // 2. Package Recommendation (Q14 & Q1-10 gap pattern)
@@ -485,48 +514,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const pkg = packageData[recommendedPackageKey] || packageData["Foundation"];
-    pkgTitle.textContent = pkg.name;
-    pkgDesc.textContent = pkg.desc;
-    pkgFeatures.innerHTML = pkg.specs.map(item => `<li>${item}</li>`).join('');
+    if (pkgTitle && pkg) pkgTitle.textContent = pkg.name;
+    if (pkgDesc && pkg) pkgDesc.textContent = pkg.desc;
+    if (pkgFeatures && pkg) pkgFeatures.innerHTML = pkg.specs.map(item => `<li>${item}</li>`).join('');
 
     // 3. Three Insights pulled from three questions with largest gap (bottlenecks)
     const sortedGaps = [...scoredGaps].sort((a, b) => b.gap - a.gap);
     const topThree = sortedGaps.slice(0, 3);
 
-    insightsFeed.innerHTML = topThree.map(item => `
-      <div class="gap-feed-item">
-        <strong>${item.title} (${item.topic})</strong>
-        <p>${item.text}</p>
-      </div>
-    `).join('');
-
-    // 4. Call to Action based on cutoff
-    // High Score (>= 7.5): Qualifies for Founder Strategy Call (Calendly)
-    // Low Score (< 7.5): Receives the Store Audit & Fix Guide PDF directly via email (no download button)
-    if (isGoodStore) {
-      ctaPanel.innerHTML = `
-        <a href="https://calendly.com/muhammad11abdullah21/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-accent btn-pill-lg btn-block" id="btn-book-call">
-          <span>Book a Strategy Call with the Founders (${pkg.name})</span>
-          <span class="btn-arrow">→</span>
-        </a>
-        <div class="btn-pill btn-pill-outline btn-block" style="margin-top: 10px; text-align: center; font-size: 13px;" id="btn-email-status">
-          ✓ Founder Strategy Call (Calendly) link dispatched via email to ${contactData.email}
+    if (insightsFeed) {
+      insightsFeed.innerHTML = topThree.map(item => `
+        <div class="gap-feed-item">
+          <strong>${item.title} (${item.topic})</strong>
+          <p>${item.text}</p>
         </div>
-      `;
-    } else {
-      ctaPanel.innerHTML = `
-        <div style="background: rgba(20, 184, 166, 0.1); border: 1.5px solid #14b8a6; border-radius: 16px; padding: 22px 20px; text-align: center;">
-          <div style="font-size: 1.15rem; font-weight: 800; color: #111827; margin-bottom: 6px;">
-            ✓ Store Audit &amp; Fix Guide Sent Directly to Your Email
-          </div>
-          <p style="font-size: 0.9rem; color: #374151; margin: 0 0 12px 0; line-height: 1.5;">
-            Your 15-point store diagnostic scorecard and actionable fix guide (PDF) has been sent directly to <strong>${contactData.email}</strong>.
-          </p>
-          <div style="font-size: 0.8rem; font-weight: 600; color: #0D9488;" id="btn-email-status">
-            Please check your inbox (and spam/promotions folder) to open your PDF.
-          </div>
-        </div>
-      `;
+      `).join('');
     }
 
     // 5. Send Transactional Email via Resend API

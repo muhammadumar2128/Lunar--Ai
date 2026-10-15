@@ -43,10 +43,10 @@ export default async function handler(req, res) {
     const FALLBACK_KEY = Buffer.from('cmVfQTZrSHl4NmZfVFQzcW5xbnFOTkJvcHVYR3RRTjZSa0tW', 'base64').toString('ascii');
     const apiKey = process.env.RESEND_API_KEY || FALLBACK_KEY;
     const fromDomain = process.env.RESEND_FROM_EMAIL || 'admin@lunarai.agency';
-    const replyToEmail = process.env.REPLY_TO_EMAIL || 'admin@lunar.com';
+    const replyToEmail = process.env.REPLY_TO_EMAIL || 'admin@lunarai.com';
     const founderMeetingUrl = process.env.FOUNDER_MEETING_URL || 'https://calendly.com/muhammad11abdullah21/30min';
     const pdfUrl = process.env.PDF_AUDIT_URL || 'https://lunarai.agency/assets/lunar-store-audit.pdf';
-    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'admin@lunar.com';
+    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'admin@lunarai.com';
 
     const numericScore = parseFloat(score);
     const isGood = isGoodStore || numericScore >= 7.5;
@@ -149,7 +149,7 @@ export default async function handler(req, res) {
                 © 2026 Lunar AI. Custom Shopify stores by Lunar AI.
               </p>
               <p style="font-size: 12px; color: #6B7280; margin: 0;">
-                <a href="mailto:admin@lunar.com" style="color: #0D9488; text-decoration: none; font-weight: 600;">admin@lunar.com</a> · <a href="https://lunarai.agency" style="color: #6B7280; text-decoration: none;">lunarai.agency</a>
+                <a href="mailto:admin@lunarai.com" style="color: #0D9488; text-decoration: none; font-weight: 600;">admin@lunarai.com</a> · <a href="https://lunarai.agency" style="color: #6B7280; text-decoration: none;">lunarai.agency</a>
               </p>
             </td>
           </tr>
@@ -269,7 +269,7 @@ export default async function handler(req, res) {
                 © 2026 Lunar AI. Custom Shopify stores by Lunar AI.
               </p>
               <p style="font-size: 12px; color: #6B7280; margin: 0;">
-                <a href="mailto:admin@lunar.com" style="color: #0D9488; text-decoration: none; font-weight: 600;">admin@lunar.com</a> · <a href="https://lunarai.agency" style="color: #6B7280; text-decoration: none;">lunarai.agency</a>
+                <a href="mailto:admin@lunarai.com" style="color: #0D9488; text-decoration: none; font-weight: 600;">admin@lunarai.com</a> · <a href="https://lunarai.agency" style="color: #6B7280; text-decoration: none;">lunarai.agency</a>
               </p>
             </td>
           </tr>
